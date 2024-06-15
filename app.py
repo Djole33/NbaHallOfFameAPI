@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+import os
 
 # Initialize Flask application
 app = Flask(__name__)
+port = int(os.getenv('PORT', 4000))
 
 # Sample data of Hall of Fame players with their points
 hall_of_fame_players = [
@@ -85,5 +87,5 @@ def get_player(id):
 
 # Run the Flask application
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=port)
 
